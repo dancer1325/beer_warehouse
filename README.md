@@ -1,1 +1,1 @@
-# beer-warehouse
+# Beer warehouse
