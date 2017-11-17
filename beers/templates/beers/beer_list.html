@@ -9,12 +9,10 @@
 
             <h3>Beer collection</h3>
 
-            {% block comment %}
-                Comentario invisible
-            {% endblock %}
+
 
             <ul>
-                {% for beer in beers %}
+                {% for beer in object_list %}
 
                     {% if beer.abv > 1 and True %}
                         <li><a href="{% url 'beer-detail-view' beer.pk %}"> Name: {{ beer }}, alcohol: {{ beer.abv }}</a></li>
