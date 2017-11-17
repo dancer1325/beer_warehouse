@@ -1,5 +1,6 @@
 import random
 
+from django.http import Http404
 from django.shortcuts import render
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -24,6 +25,10 @@ def beer_list_view(request):
     beer_list = Beer.objects.all()
 
     # TESTING ZONE
+    print("request.user", request.user)
+    print("request.GET", request.GET)  # http://localhost:8000/beer/list/?x=1
+    # raise Http404("Not found")
+
     print("beer_list", beer_list)
 
     beer_list_count = beer_list.count()
