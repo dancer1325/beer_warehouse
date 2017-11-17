@@ -9,10 +9,8 @@
 
             <h3>Beer collection</h3>
 
-
-
             <ul>
-                {% for beer in object_list %}
+                {% for beer in beer_list %}
 
                     {% if beer.abv > 1 and True %}
                         <li><a href="{% url 'beer-detail-view' beer.pk %}"> Name: {{ beer }}, alcohol: {{ beer.abv }}</a></li>

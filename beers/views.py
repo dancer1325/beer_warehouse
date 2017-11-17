@@ -1,11 +1,12 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 
 # Create your views here.
+from beers.mixins import AddMyBirthdayToContextMixin
 from beers.models import Beer, Company
 
 
-def first_view(request):
+def landing_view(request):
     # return HttpResponse("Saludos")
 
     everybody_value = "todas"
@@ -16,8 +17,10 @@ def first_view(request):
 
     return render(request, 'beers.html', context)
 
-class ListBeerView(ListView):
+
+class BeerListView(ListView):
     model = Beer
 
-def beer_detail_view(request, pk):
-    return render(request, 'beer_detail.html', {'beer': Beer.objects.get(pk=pk)})
+
+class BeerDetailView(AddMyBirthdayToContextMixin, DetailView):
+    model = Beer
