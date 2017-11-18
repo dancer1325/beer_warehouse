@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h3>Companies</h3>
+
+            <div>
+                {% for company in company_list %}
+
+                    <p>{{ company}} <a href="{% url 'company-edit-view' company.pk %}">Edit</a></p>
+
+                {% endfor %}
+            </div>
+
+            <p><a href="{% url 'company-create-view' %}">Create new company</a></p>
+        </div>
+    </div>
+
+{% endblock %}

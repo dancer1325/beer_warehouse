@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <h3>{{ company }}</h3>
+
+    <!--<div>-->
+        <!--<form action="" method="post">-->
+            <!--{% csrf_token %}-->
+
+            <!--{{ form }}-->
+
+            <!--<input type="submit" value="Submit" />-->
+        <!--</form>-->
+    <!--</div>-->
+
+    <div>
+        {% crispy form %}
+    </div>
+
+    <br>
+    <br>
+    <div>
+        ¿Dices que hubo un error? {% if form.errors %} Sí {% else %} No {% endif %}
+    </div>
+{% endblock %}

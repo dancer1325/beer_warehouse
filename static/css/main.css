@@ -7,6 +7,7 @@ body {
   text-align: center;
 }
 
+/* LOGIN FORM */
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -38,4 +39,9 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/* FORMS */
+.control-group {
+    padding: 0.5em 0;
 }
