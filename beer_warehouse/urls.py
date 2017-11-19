@@ -18,6 +18,14 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from rest_framework import routers
+
+from beers.api import views
+
+router = routers.DefaultRouter()
+router.register(r'beers', views.BeerViewSet)
+router.register(r'companies', views.CompanyViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
@@ -25,5 +33,8 @@ urlpatterns = [
     url(r'^bars/', include('bars.urls')),
 
     url(r'^accounts/', include('django.contrib.auth.urls')),
+
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
