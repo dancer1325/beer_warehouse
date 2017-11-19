@@ -10,12 +10,12 @@ from beers.models import Beer, Company
 
 
 def landing_view(request):
-    # return HttpResponse("Saludos")
-
+    request.session['counter'] = request.session.get('counter', 0) + 1
     everybody_value = "todas"
     context = {
         'everybody_var': everybody_value,
-        'my_list': [1, 3, 88889]
+        'my_list': [1, 3, 88889],
+        'counter': request.session['counter']
     }
 
     return render(request, 'beers.html', context)
