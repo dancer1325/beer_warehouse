@@ -45,6 +45,13 @@ class Beer(CommonInfo):
     def __str__(self):
         return self.name
 
+    @property
+    def is_alcoholic(self):
+        return self.abv > 0
+
+    def has_more_alcohol_than(self, alcohol):
+        return self.abv > alcohol
+
 
 class SpecialIngredient(CommonInfo):
     name = models.CharField('Name', max_length=255)
