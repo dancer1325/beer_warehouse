@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
 
 {% block content %}
 
     <div class="row">
         <div class="col-md-12">
 
-            <h3>Companies</h3>
+            <h3>Testing zone</h3>
 
+            <p>Fruta {% blocktrans context "fruit" %}orange{% endblocktrans %}</p>
+            <p>Color {% blocktrans context "color" %}orange{% endblocktrans %}</p>
+            <p>Month {{ may_month }}</p>
+            <p>Name {{ may_name }}</p>
+
+            <p>
+                {% blocktrans with company_name=company_list.0.name %}I love {{ company_name }}{% endblocktrans %}
+            </p>
+
+            <h3>{% trans "Companies" %}</h3>
             <div>
                 {% for company in company_list %}
 
-                    <p>{{ company}} <a href="{% url 'company-edit-view' company.pk %}">Edit</a></p>
+                    <p>{{ company }} <a href="{% url 'company-edit-view' company.pk %}">Edit</a></p>
 
                 {% endfor %}
             </div>

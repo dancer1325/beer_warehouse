@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.forms.formsets import formset_factory
+from django.utils.translation import pgettext
 
 # Create your views here.
 from beers.forms import CompanyForm, BeerFormset
@@ -32,6 +33,11 @@ class BeerDetailView(AddMyBirthdayToContextMixin, DetailView):
 class CompanyListView(ListView):
     model = Company
 
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['may_month'] = pgettext("month name", "May")
+        ctx['may_name'] = pgettext("person name", "May")
+        return ctx
 
 # Form
 # def company_edit_view(request, pk):

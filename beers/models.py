@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from beers.utils import beer_image_upload_location
 from core.models import CommonInfo
@@ -29,7 +30,7 @@ class Beer(CommonInfo):
         (COLOR_BLACK, 'Black')
     )
 
-    name = models.CharField('Name', max_length=255)
+    name = models.CharField(_(u'Name'), max_length=255)
     abv = models.DecimalField('Alcohol by volume', max_digits=5, decimal_places=2, default=0)
     color = models.PositiveSmallIntegerField('Color', choices=COLOR_CHOICES, default=COLOR_YELLOW)
     is_filtered = models.BooleanField("Is filtered?", default=False)
