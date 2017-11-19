@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load beer_tags %}
+
 
 {% block content %}
 
-    Hola a {{ everybody_var }}.
-
     <p>
-        Mi lista favorita es: {{ my_list }}, y su primer elemento es {{ my_list.0 }}.
+        Beer counter: {% beer_counter %}.
     </p>
 
     <p>
-        Counter = {{ counter }}
+        {% company_counter as comp_counter %}
+        Company counter: {% company_counter %}.
     </p>
 
-    <img src="{% static 'img/beers.jpg' %}" class="img-fluid">
+    <div>
+        {% beer_list_small %}
+    </div>
+
+    <!--<p>-->
+        <!--Hola a {{ everybody_var }}.-->
+    <!--</p>-->
+
+    <!--<p>-->
+        <!--Mi lista favorita es: {{ my_list }}, y su primer elemento es {{ my_list.0 }}.-->
+    <!--</p>-->
+
+    <!--<p>-->
+        <!--Counter = {{ counter }}-->
+    <!--</p>-->
+
+    <!--<img src="{% static 'img/beers.jpg' %}" class="img-fluid">-->
 
 {% endblock %}
