@@ -35,6 +35,7 @@ class CompanyListView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
+        Beer.objects.all()
         ctx['may_month'] = pgettext("month name", "May")
         ctx['may_name'] = pgettext("person name", "May")
         return ctx

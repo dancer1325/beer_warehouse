@@ -40,12 +40,14 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'rest_framework',
+    'debug_toolbar',
 
     'beers',
     'bars',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
+
     # 'core.middlewares.AdminDeniedMiddleware',
 ]
 
@@ -148,3 +151,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     ]
 }
+
+INTERNAL_IPS = '127.0.0.1'
